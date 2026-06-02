@@ -1,0 +1,19 @@
+# =============================================================================
+# Capiba Calcula — requisitos de ambiente
+# Testado com Python 3.12
+# Instale com:  pip install -r requirements.txt
+# =============================================================================
+
+# ── Interface da aplicação ────────────────────────────────────────────────────
+gradio>=4.20.0
+
+# ── ETL e manipulação de dados ────────────────────────────────────────────────
+pandas>=2.0.0
+numpy>=1.25.0
+
+# ── Visualizações (gráficos na interface e nos relatórios) ────────────────────
+matplotlib>=3.8.0
+seaborn>=0.13.0
+
+# ── Geração de relatórios PDF ─────────────────────────────────────────────────
+reportlab>=4.0.0

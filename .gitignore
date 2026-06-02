@@ -1,0 +1,60 @@
+# =============================================================================
+# .gitignore — Capiba Calcula
+# =============================================================================
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+
+# ── Ambientes virtuais ────────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+.env
+
+# ── Distribuição e empacotamento ──────────────────────────────────────────────
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+
+# ── Testes e cobertura ────────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+*.xml
+
+# ── IDEs ──────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ── Sistema operacional ───────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Arquivos gerados pelo Gradio ──────────────────────────────────────────────
+gradio_cached_examples/
+flagged/
+*.gradio/
+
+# ── Relatórios PDF gerados em runtime ────────────────────────────────────────
+Relatorio_*.pdf
+analise_cientifica_emissoes.png
+
+# ── Jupyter ───────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb
+
+# ── Variáveis de ambiente e segredos ─────────────────────────────────────────
+.env
+.env.*
+secrets.toml
