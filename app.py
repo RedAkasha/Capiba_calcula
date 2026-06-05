@@ -228,7 +228,7 @@ def download_fleet_pdf(selected_fleet: str):
 #  INTERFACE GRADIO
 # ════════════════════════════════════════════════════════════════════════════════
 
-with gr.Blocks(theme=gr.themes.Soft(primary_hue="green")) as demo:
+with gr.Blocks() as demo:
     gr.Markdown("# 🌿 Capiba Calcula")
 
     # ── ABA 1: CADASTRO ──────────────────────────────────────────────────────
@@ -357,14 +357,65 @@ with gr.Blocks(theme=gr.themes.Soft(primary_hue="green")) as demo:
 
     # ── ABA 3: FUNDAMENTAÇÃO ────────────────────────────────────────────────
     with gr.Tab("📊 Fundamentação de Pesquisa e Gráficos"):
-        gr.Markdown("### Embasamento Científico e Metodologias Nacionais")
-        ref_text = gr.TextArea(
-            value=get_references(), lines=8,
-            label="Referências Oficiais Pesquisadas", interactive=False)
-        btn_chart  = gr.Button(
-            "Renderizar Gráficos de Análise de Carbono", variant="primary")
+
+        gr.HTML("""
+        <div style="
+            background: linear-gradient(135deg, #0F1F14 0%, #162417 100%);
+            border-radius: 12px; padding: 20px 24px; margin-bottom: 8px;
+            border: 1px solid #2A3D2E;">
+          <h2 style="color:#E8F5E9; margin:0 0 6px; font-size:17px;">
+            🔬 Embasamento Científico e Storytelling de Dados
+          </h2>
+          <p style="color:#7DAF85; font-size:13px; margin:0; line-height:1.6;">
+            Os fatores de emissão utilizados nesta calculadora são extraídos
+            via <strong style="color:#4CAF50">pipeline ETL</strong> de cinco
+            fontes oficiais brasileiras e internacionais. O painel abaixo
+            apresenta <strong style="color:#4CAF50">7 gráficos interligados</strong>
+            — do ranking de emissão direta à projeção de CO₂ evitado acumulado —
+            que contextualizam cada parâmetro adotado no simulador.
+          </p>
+        </div>""")
+
+        gr.HTML(get_references())
+
+        gr.HTML("""
+        <div style="
+            background:#162417; border-radius:10px; padding:14px 20px;
+            border:1px solid #2A3D2E; margin-top:10px;">
+          <p style="color:#7DAF85; font-size:11px; letter-spacing:.08em;
+                    text-transform:uppercase; margin:0 0 8px;">
+            Painel científico · 7 visualizações
+          </p>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px 20px;
+                      font-size:12px; color:#A5D6A7;">
+            <span>① Ranking de emissão direta CO₂ por combustível</span>
+            <span>② Pegada oculta: fila + arrancada (stacked)</span>
+            <span>③ Consumo em marcha lenta por motorização</span>
+            <span>④ Fatores de emissão GHG Protocol por combustível</span>
+            <span>⑤ Ciclo de vida completo LCA (ANFAVEA/BCG)</span>
+            <span>⑥ Projeção de CO₂ evitado acumulado (MOVER/ICCT)</span>
+            <span style="grid-column:span 2">
+              ⑦ Correlação: marcha lenta × consumo de arrancada por categoria
+            </span>
+          </div>
+        </div>""")
+
+        with gr.Row():
+            btn_chart = gr.Button(
+                "📈 Renderizar Painel Científico Completo",
+                variant="primary", scale=2)
+
         output_img = gr.Image(
-            label="Gráficos de Fatores de Emissão (Processo ETL Interno)")
+            label="Painel de Storytelling — Fatores ETL e Análise de Emissões",
+            buttons=["download"],
+            height=780)
+
+        gr.HTML("""
+        <p style="color:#455A64; font-size:11px; text-align:center; margin-top:4px;">
+          O painel é gerado sob demanda a partir dos dados extraídos pelo ETL interno.
+          Use o botão de download (ícone ↓) para salvar em alta resolução.
+        </p>""")
+
         btn_chart.click(build_charts, inputs=[], outputs=[output_img])
 
     # ════════════════════════════════════════════════════════════════════════
@@ -385,4 +436,4 @@ with gr.Blocks(theme=gr.themes.Soft(primary_hue="green")) as demo:
 
 
 if __name__ == "__main__":
-    demo.launch()
+    demo.launch(theme=gr.themes.Soft(primary_hue="green"))
