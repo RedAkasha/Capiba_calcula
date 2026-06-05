@@ -117,7 +117,7 @@ Apenas as emissões diretas de rodagem: `distância (km) × fator CO₂ (g/km) �
 | Gasolina / Flex / HEV / MHEV | 2,212 | GHG Protocol Brasil |
 | PHEV | 0,945 | Média ponderada elétrico/gasolina |
 | GNV / Etanol | 1,457 | GHG Protocol Brasil |
-| BEV | 0,125 | Fator da rede elétrica brasileira |
+| BEV | 0,125 | Fator de veículos elétricos brasileiros |
 
 ### Fatores de emissão direta por categoria/motorização (PBE Veicular)
 
